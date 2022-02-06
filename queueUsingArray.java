@@ -37,10 +37,17 @@ class CustomQueue<T>{
         return array[frontPointer];
     }
 
+    public boolean isEmpty(){
+        return frontPointer == backPointer;
+    }
+
     public void print(){
-        for(Object i: array) {
-            if(i == null) continue;
-            System.out.print(i + " ");
+
+        if(frontPointer==backPointer) System.out.println("[]");
+        else{
+            for (int i = frontPointer; i < backPointer; i++) {
+                System.out.print(array[i]+" ");
+            }
         }
         System.out.println();
     }
@@ -62,13 +69,20 @@ public class queueUsingArray {
         queue.add(40);
         queue.add(50);
 
-        queue.print();
-        queue.location();
-        System.out.println("Old-> "+queue.peek());
+//        queue.location();
+//        System.out.println("Old-> "+queue.peek());
 
         queue.remove();
-        System.out.println("New-> "+ queue.peek());
-        queue.location();
+        queue.remove();
+        queue.remove();
+        queue.remove();
+//        queue.remove();
+//        queue.remove();
+//        System.out.println("New-> "+ queue.peek());
+//        queue.location();
+
+        queue.print();
+        System.out.println(queue.isEmpty());
 
 
     }
